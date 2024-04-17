@@ -1,0 +1,468 @@
+6f203bab44e319340d5eda9bf604052c0a69314ba8843c8c76fbfa6ed132a4cf2aa3530d1a702bc17f2c16ffca375fc2ede85cc377cb8365895f3ee0726a672a081f54356375e90fc5cdb6b0d510e04864a56a98dc11d06adf575657e62740ecc99bf5d55d3045fd525ad7dc539c605c6d771ed6a021363dce9554b523fce3bad702309b09af06b3567e88a6e8232801d9c3d8ed7eb5a85a15e3a98ce5726bcc01f3bf63e0118343811ff54adc8790937ff0ee09ae4d2e2e6e5b210415610f762a96469f5fabaf36097bcff90caf2cd7a043b5f3af7e0890f465b1163929ad6c8db1a45ff40742a05d6c0d422b251a248958186be4f5aa751566f2d27d21e6fa29efb7db8a74b6c59f5d099d1ce5026b89a16dc1c99d7e8e43074a0740414773dbad1a322aafeac498135fbcf9531bd7102383edc5847d1cfbd0d2b60b3e675d015fa")
+las_1        | [2024-04-16T13:44:17Z DEBUG dcap_quoteprov::ffi::qpl] pce id: 0
+las_1        | [2024-04-16T13:44:17Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1        | [2024-04-16T13:44:17Z DEBUG dcap_quoteprov::ffi::qpl] Platform PCK certificate not found in local PCK store
+las_1        | [2024-04-16T13:44:17Z DEBUG dcap_quoteprov::ffi::qpl] Would have queried DCAP API but 'SCONE_QPL_DCAP_KEY' environment variable is not set
+las_1        | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1        | [10000:INFO@16.04.2024/13:44:17] DCAP: DCAP quoting is available
+las_1        | [ADMIN]EPID Provisioning initiated
+las_1        | The Request ID is 4788f4e310a641989be7b4ea072662ec
+cas_1        | [SCONE] Using the following values (default values or specified in the untrusted environment):
+cas_1        |
+cas_1        | SCONE_QUEUES=4
+cas_1        | SCONE_SLOTS=256
+cas_1        | SCONE_SIGPIPE=0
+cas_1        | SCONE_MMAP32BIT=0
+cas_1        | SCONE_SSPINS=100
+cas_1        | SCONE_SSLEEP=4000
+cas_1        | SCONE_CONFIG=/etc/sgx-musl.conf
+cas_1        | SCONE_TCS=8
+cas_1        | SCONE_LOG=WARNING
+cas_1        | SCONE_HEAP=268435456
+cas_1        | SCONE_STACK=2097152
+cas_1        | SCONE_ESPINS=10000
+cas_1        | SCONE_MODE=hw
+cas_1        | SCONE_ALLOW_DLOPEN=no
+cas_1        | SCONE_MPROTECT=no
+cas_1        | SCONE_FORK=no
+cas_1        | SCONE_FORK_OS=0
+cas_1        |
+cas_1        | SCONE_CONFIG_ID: <not specified>
+cas_1        | musl version: 1.2.4
+cas_1        | SCONE version: 5.8.0 (2023-06-08 15:13:27)
+cas_1        | Enclave hash: fb4893ff8c299f526e6d260fce40f9c1cd28fd5bec2a444fd0639ea9dc79a82f
+cas_1        | [SCONE|WARN] src/enclave/dispatch.c:136:print_runtime_info(): Application runs in SGX debug mode. Its memory can be read from outside the enclave with a debugger! This is not secure!
+cas_1        | [SCONE|WARN] src/shielding/fs_proc.c:470:proc_fs_open(): open: /proc/self/cgroup is not supported
+cas_1        | 2024-04-16T13:44:17.520773Z  INFO Starting CAS 5.8.0 (2023-06-08 15:13:27)
+cas_1        | 2024-04-16T13:44:17.525976Z  WARN CAS running in debug mode or without SGX protection. It can NOT protect secrets!
+cas_1        | 2024-04-16T13:44:17.525976Z  INFO CAS database encryption key is 630efd7786f79a090b392664b10d959396193fff7cab47388215438ca3ef1397
+cas_1        | 2024-04-16T13:44:17.526288Z  INFO CAS upgrade database encryption key is e1c777044fab6e70431c6afce2e0b0cb533b8c6196487f5900bdc1dce0a6226a
+las_1        | The Request ID is e7b50bf5bfd4450fb5d8981fa88946a6
+cas_1        | 2024-04-16T13:44:17.787568Z  INFO CAS is not provisioned. Provisioning it using the command line options
+cas_1        | 2024-04-16T13:44:17.802853Z  INFO The CAS owner configuration was updated
+cas_1        | 2024-04-16T13:44:17.803005Z  INFO CAS key hash:           4CG1vttFCFupRqRf91sRQh4qAKBD4sP3phAkeX1n6GRtGm9CyR
+cas_1        | 2024-04-16T13:44:17.803158Z  INFO CAS software key hash:  4b8aguJ9hbT96NBM3CAogAMsXpiH6WjrPq52XQCiPrM4cXFzGg
+cas_1        | 2024-04-16T13:44:17.811195Z  INFO Started new SGX Signer Key Pool worker ThreadId(9)
+cas_1        | 2024-04-16T13:44:17.997162Z  INFO Enclave-API: Listening on 0.0.0.0:18765 (TCP)
+cas_1        | 2024-04-16T13:44:17.997628Z  INFO REST-API: Listening on 0.0.0.0:8081 (TCP)
+las_1        | [ADMIN]EPID Provisioning successful
+las_1        | [10000:INFO@16.04.2024/13:44:18] STARTER: SCONE QE has MRENCLAVE 4603BF83BE20AF3F2EB168ABCD12C43080CFA0146477AA4C6DD76310539B9E60
+las_1        | [10000:INFO@16.04.2024/13:44:18] STARTER: SCONE QE has public key 62F33C07FFCAAB563735CF2DB774B21397623700C97D36056210C0D5ED0B74C5
+las_1        | [10000:INFO@16.04.2024/13:44:18] STARTER: Setting up LAS to listening on :::18766
+las_1        | [10000:INFO@16.04.2024/13:44:18] STARTER: LAS started listening ...
+cas_1        | 2024-04-16T13:45:49.150201Z DEBUG REST-API:connection{peer=141.76.44.109:42004}:TLS{client_identity=4ETGpmNHocPH8VeuqZu5frrMg4XKGv1uxmnNeeUpAaSXpHSE7k}:HTTP{path="/session" method=POST}: Received request
+cas_1        | 2024-04-16T13:45:49.168509Z DEBUG REST-API:connection{peer=141.76.44.109:42004}:TLS{client_identity=4ETGpmNHocPH8VeuqZu5frrMg4XKGv1uxmnNeeUpAaSXpHSE7k}:HTTP{path="/session" method=POST}: Sending response status=201 Created
+cas_1        | 2024-04-16T13:46:48.138540Z DEBUG Enclave-API:connection{peer=141.76.44.109:49398}: Connection was opened
+cas_1        | 2024-04-16T13:46:48.142360Z DEBUG Enclave-API:connection{peer=141.76.44.109:49398}:TLS{enclave_identity=3nQQBF4BgTBzVhfaXamCHwVNFVfBDaVGoUZi91PS2tatbChfVr}: current_state="Initial" received_message=EnclaveHelloSingletonPageRequest { service_id: "test3/test", base_hash: 1HApFJ8G2P7KwNNW26rgEDv5urFDcoQS6vewHfRzaW9my9YtwwBPbn2K8Uas8, singleton_page_offset: 134213632, sig_struct: SigStruct { header: 06000000e10000000000010000000000, vendor: 00000000, date: 00000000, header2: 01010000600000006000000001000000, swdefined: 00000000, reserved1: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, modulus: 2b27f7e33173998c711515fcfab4c99b32ee9d8f770945b0db6cc469fd47cf73040d9175bb95ae6ba4a37990b833460216e994bd1aee83d7bc4d3db88c47a3ac3e54454714c0e6ece7624105a6b703336825c98de11e665d7daaf910253b5742fa54b38f831bbc199c215374c21d7119165fac6a8976a79348347fb5b5cf9dda3e817a2215b7cccd2595ccfcfaf4e1eadeaefe181c5014e41f6276e56ba18fe08aa26b1b4beb543c31aa1a872feb7d3f95dd7ff2342b2115d1a893b493321398890fc38ed814700bca9463af58077f9e060b8f78fe4f11ddfecdb2fbbc6b41d75d93e85ba130d778c2693f872e63504878d692f23960a3dd82fc2cb4a5a30683c643b4645d060f1d8988ba02985064f56bb4e248edd92b62f71354d878f1ebef9c3bea4424f1bf330676c04131e9eab0e6c3b1a543a65ce892246319bde7b0b117fbde080baa6df51b74dd2e15fbc5866a5c1fdc7b182c03eecc6f9848882dad80fb8faedd63f1e890b55be78b24137813f870a64398042f43a05706866831ca, exponent: 3, signature: 7d90c8709e704aa975dbf6d260825a56166bc08ec8b4657893b1c04068cafddd77f494f3fff8b4e4dd17bed8a2018152c16cc09122b0e16e30e55e248726a3eb2be0359b9c4f59cfcfdab3faeeeed5ad7d9b01d752052ffb25a01c4f2fbd9a4e4660246f2d9404dfd402b1418aac2280c1ab785a4bffce3ce4f7354057ee96f183a19bb6ff022b114466c2d8f6bed9871ce6e877528f91a1ec992c0f4e16589d3f50bf363b56da8ed46737a3309919b044b5c8c15f5a00bed2e8a572cdd6494f48a677f0b39c5a4918cfbd39b631e162ee199d006aa77c4d5846ca20bff66ab7fdf204ea50afc87de64da2ea9fb5febd2e6dae437fbf8033bab008854de201cd4a88365213a7a46940913b414ffcc536a7df7b1d23e723a42ef83a68e278828c78a724fbc3fae0e8cb23fc0969cb72a19bb6ce35c7c6cf54f23cd69205a952d3da43bc7f2d0d863e120dffe2f1fd722ad6a242a6f395cb2d739344185b7302b9d7e0fdb098ec1d03f6d43218a0bbc0e12d3b768e71b6e249dfdd929f369cfc3a, miscselect: 00000000 00000000 00000000 00000000 , miscmask: 11111111 11111111 11111111 11111111 , cet_attributes: 0, cet_attributes_mask: 0, reserved2: 0000, isvfamilyid: 00000000000000000000000000000000, attributes: 01100000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 11000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 , attributes_mask: 01100000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 11011111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 , enclavehash: b98baff4bf0e20f26bd4dfebbdb9179fd034e78bbd6786dad60c57c44f04652c, reserved3: 00000000000000000000000000000000, isvextprodid: 00000000000000000000000000000000, isvprodid: 0, isvsvn: 0, reserved4: 000000000000000000000000, q1: 1de3b32ca83c1b164994371b7f4b2177e338eae1fe5569ebf28a51cf851e0a2aac3b60b3afd75716b6df34d40c91947f6e3d452b6e9acb9e7943280e7b9d613e1a7e727dcac81943737b98bc6cddf543b8ba56cc7e97dac17655490c4c5d975773fb16dc2407c4d0c063b481de17de62d1cad870a99e88a6b0b43ddde5266a71cdcd6319c1d8fa46c8a25ee4e247406ac5c9608a67c9fdf08244e1e74de0b95a79a1e01c525e2e7515a391d28ff78813d39d529b6eea9f5cb39c97b52b0b8a6513015f20ad9dfc2b70c44922d84dc675fe4f839698b5e476a1d69d6031a9fb1fcd4103592d196359a452af749b19100557e7c1f078564581d157bd67d382b52c95eaffe3e2fa98813d63f2ac7893da96389ec5f16363de79b88f80dc581a0230344bbf5c4cb9c04c0684fc1295692e486165b2e21e31abe68ebda59c9d2315cf1a2e5dd53de4562932c3ccf75fbbd65c60bd31d45f1cf8cab0c3f5099530f039573b1de384c2c9cfb0002e5d3d7327c2f2450302207bea4bcc707f7c12603511, q2: 2bc13024f2f186e8c75dd4a9f6622d50bfa2adb83ea34f141f6a4f9242b038612330aab8ff96753df8282b80885ce12f33c4f90f71fe2c2eb3f8a8038265e4c4651d8a563c050c7b947c30d8238562c6a8d5682acf244511d691408df3b96e2bd42cbf175b09d512fef130e00a4c925254e0351cac4d151e30ff276b2c337335086ff688887b628cb4c645855e84c943eb746d74f312728c7adcfd917ea4a527c98cff5b62c8dabc1047282ce35a3fdd4d4bff0e709b1dfc398dc904d22060dbfe1921dac8d3c68e67c1b8445f2d4d0fc4f85535531cb236fd373803f198fd10cb92f3510d22468583d0d7c56179ac14b2ff1aa6facfd939cdf8a7e15f7a7575fbc2a4faabeef40516b5e75d6a83dc0fb4eab471a866ecc2873da48ae2c044e599221f4a201a9a4d2bf18a8d3f4638d2a3c08d3cec2bc4f73f9dfd42b2a834251bd0d590b4a2bccab370a027b930ab6a7fe947e2e515251b4b821e7c7ce76271701b4bca64fa2e95ae68d5d24a0cf1eb01719cb8d42bd324bcdfa1b675b28335 }, versions: VersionInfo { client_supported_protocol_versions: [2,15], negotiated_protocol_version: 15, quote_getter_supported_protocol_versions: None, runtime_version: 5.8.0 (2023-06-08 15:13:27), quote_getter_scone_version: unknown (older than 5.8.0) } }
+cas_1        | 2024-04-16T13:46:48.148796Z DEBUG Enclave-API:connection{peer=141.76.44.109:49398}:TLS{enclave_identity=3nQQBF4BgTBzVhfaXamCHwVNFVfBDaVGoUZi91PS2tatbChfVr}: new_state="Intermediate" sending_message=Success
+cas_1        | 2024-04-16T13:46:48.149561Z DEBUG Enclave-API:connection{peer=141.76.44.109:49398}: Connection was closed due to error: Failed to receive protobuf message from enclave
+cas_1        | Caused by: I/O error
+cas_1        | Caused by: unexpected end of file
+cas_1        | 2024-04-16T13:46:53.301546Z DEBUG Enclave-API:connection{peer=141.76.44.109:49410}: Connection was opened
+cas_1        | 2024-04-16T13:46:53.303961Z DEBUG Enclave-API:connection{peer=141.76.44.109:49410}:TLS{enclave_identity=339VBqmTYPX15bZn7Li373vUPgLtPrzddJqR6FEyY1WxbB7Efn}: current_state="Initial" received_message=EnclaveHelloConfigRequest { service_id: "test3/test", attestation_collaterals: [], singleton_page: None, access_token_mac: None, versions: VersionInfo { client_supported_protocol_versions: [2,15], negotiated_protocol_version: 15, quote_getter_supported_protocol_versions: None, runtime_version: 5.8.0 (2023-06-08 15:13:27), quote_getter_scone_version: unknown (older than 5.8.0) } }
+cas_1        | 2024-04-16T13:46:53.305309Z DEBUG Enclave-API:connection{peer=141.76.44.109:49410}:TLS{enclave_identity=339VBqmTYPX15bZn7Li373vUPgLtPrzddJqR6FEyY1WxbB7Efn}: error_code=400 Bad Request
+cas_1        | 2024-04-16T13:46:53.305882Z DEBUG Enclave-API:connection{peer=141.76.44.109:49410}: Connection was closed due to error: Handling enclave message resulted in an unrecoverable error
+cas_cas_1        | 2024-04-16T13:51:00.797998Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}: Received request
+las_1        | [10000:INFO@16.04.2024/13:51:00] CONNECTION_HANDLER: Received quote request
+las_1        | [2024-04-16T13:51:00Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1        | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1        | [2024-04-16T13:51:00Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1        | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1        | [10000:INFO@16.04.2024/13:51:00] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1        | [10000:INFO@16.04.2024/13:51:00] CONNECTION_HANDLER: Received quote request
+las_1        | [2024-04-16T13:51:00Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1        | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1        | [2024-04-16T13:51:00Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1        | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1        | [10000:INFO@16.04.2024/13:51:00] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+cas_1        | 2024-04-16T13:51:00.817858Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}: Sending response status=200 OK
+cas_1        | 2024-04-16T13:51:01.558562Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}: Received request
+las_1        | [10000:INFO@16.04.2024/13:51:01] CONNECTION_HANDLER: Received quote request
+las_1        | [10000:INFO@16.04.2024/13:51:01] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+cas_1        | 2024-04-16T13:51:01.774934Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(60a224203de7a87b0f22d3ee6e36833f), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: starting new connection: https://api.trustedservices.intel.com/
+cas_1        | 2024-04-16T13:51:01.776612Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(60a224203de7a87b0f22d3ee6e36833f), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: querying: api.trustedservices.intel.com A
+cas_1        | 2024-04-16T13:51:01.776928Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(60a224203de7a87b0f22d3ee6e36833f), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: sending request: [Query { name: Name("api.trustedservices.intel.com"), query_type: A, query_class: IN }]
+cas_1        | 2024-04-16T13:51:01.777246Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(60a224203de7a87b0f22d3ee6e36833f), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: reconnecting: NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_nx_responses: false, bind_addr: None }
+cas_1        | 2024-04-16T13:51:01.777400Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(60a224203de7a87b0f22d3ee6e36833f), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: enqueueing message:QUERY:[Query { name: Name("api.trustedservices.intel.com"), query_type: A, query_class: IN }]
+cas_1        | 2024-04-16T13:51:01.777707Z DEBUG final message: ; header 16236:QUERY:RD:NoError:QUERY:0/0/0
+cas_1        | ; query
+cas_1        | ;; api.trustedservices.intel.com. IN A
+cas_1        |
+cas_1        | 2024-04-16T13:51:01.778169Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(60a224203de7a87b0f22d3ee6e36833f), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: created socket successfully
+cas_1        | 2024-04-16T13:51:01.779102Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(60a224203de7a87b0f22d3ee6e36833f), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: received message id: 16236
+cas_1        | 2024-04-16T13:51:01.779263Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(60a224203de7a87b0f22d3ee6e36833f), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: Response:; header 16236:RESPONSE:RD,RA:NoError:QUERY:5/0/0
+cas_1        | ; query
+cas_1        | ;; api.trustedservices.intel.com. IN A
+cas_1        | ; answers 5
+cas_1        | api.trustedservices.intel.com. 8 IN CNAME sgxintel.azure-api.net.
+cas_1        | sgxintel.azure-api.net. 8 IN CNAME apimgmttmwi78pmzmm0stfecre4mynxozrbv6dy06xfrig32wb.trafficmanager.net.
+cas_1        | apimgmttmwi78pmzmm0stfecre4mynxozrbv6dy06xfrig32wb.trafficmanager.net. 8 IN CNAME sgxintel-eastus-01.regional.azure-api.net.
+cas_1        | sgxintel-eastus-01.regional.azure-api.net. 8 IN CNAME apimgmthsvmzinmu3tvpglxj0erhgyee9rmyuhzecwzzlnyae0.cloudapp.net.
+cas_1        | apimgmthsvmzinmu3tvpglxj0erhgyee9rmyuhzecwzzlnyae0.cloudapp.net. 8 IN A 40.87.90.88
+cas_1        | ; nameservers 0
+cas_1        | ; additionals 0
+cas_1        |
+cas_1        | 2024-04-16T13:51:01.779263Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(60a224203de7a87b0f22d3ee6e36833f), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: Response:; header 16236:RESPONSE:RD,RA:NoError:QUERY:5/0/0
+cas_1        | ; query
+cas_1        | ;; api.trustedservices.intel.com. IN A
+cas_1        | ; answers 5
+cas_1        | api.trustedservices.intel.com. 8 IN CNAME sgxintel.azure-api.net.
+cas_1        | sgxintel.azure-api.net. 8 IN CNAME apimgmttmwi78pmzmm0stfecre4mynxozrbv6dy06xfrig32wb.trafficmanager.net.
+cas_1        | apimgmttmwi78pmzmm0stfecre4mynxozrbv6dy06xfrig32wb.trafficmanager.net. 8 IN CNAME sgxintel-eastus-01.regional.azure-api.net.
+cas_1        | sgxintel-eastus-01.regional.azure-api.net. 8 IN CNAME apimgmthsvmzinmu3tvpglxj0erhgyee9rmyuhzecwzzlnyae0.cloudapp.net.
+cas_1        | apimgmthsvmzinmu3tvpglxj0erhgyee9rmyuhzecwzzlnyae0.cloudapp.net. 8 IN A 40.87.90.88
+cas_1        | ; nameservers 0
+cas_1        | ; additionals 0
+cas_1        |
+cas_1        | 2024-04-16T13:51:02.785517Z DEBUG REST-API:connection{peer=172.18.0.4:55986}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}: Sending response status=200 OK
+cas_1        | 2024-04-16T13:53:01.569931Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}: Received request
+las_1        | [10000:INFO@16.04.2024/13:53:01] CONNECTION_HANDLER: Received quote request
+las_1        | [2024-04-16T13:53:01Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1        | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1        | [2024-04-16T13:53:01Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1        | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1        | [10000:INFO@16.04.2024/13:53:01] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1        | [10000:INFO@16.04.2024/13:53:01] CONNECTION_HANDLER: Received quote request
+las_1        | [2024-04-16T13:53:01Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1        | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1        | [2024-04-16T13:53:01Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1        | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1        | [10000:INFO@16.04.2024/13:53:01] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+cas_1        | 2024-04-16T13:53:01.589714Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}: Sending response status=200 OK
+cas_1        | 2024-04-16T13:53:02.130183Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}: Received request
+las_1        | [10000:INFO@16.04.2024/13:53:02] CONNECTION_HANDLER: Received quote request
+las_1        | [10000:INFO@16.04.2024/13:53:02] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+cas_1        | 2024-04-16T13:53:02.349196Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(1a4e9ae0c938078652fbaddb1e766137), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: starting new connection: https://api.trustedservices.intel.com/
+cas_1        | 2024-04-16T13:53:02.349958Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(1a4e9ae0c938078652fbaddb1e766137), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: querying: api.trustedservices.intel.com A
+cas_1        | 2024-04-16T13:53:02.350416Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(1a4e9ae0c938078652fbaddb1e766137), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: sending request: [Query { name: Name("api.trustedservices.intel.com"), query_type: A, query_class: IN }]
+cas_1        | 2024-04-16T13:53:02.350586Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(1a4e9ae0c938078652fbaddb1e766137), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: existing connection: NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_nx_responses: false, bind_addr: None }
+cas_1        | 2024-04-16T13:53:02.350739Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(1a4e9ae0c938078652fbaddb1e766137), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: enqueueing message:QUERY:[Query { name: Name("api.trustedservices.intel.com"), query_type: A, query_class: IN }]
+cas_1        | 2024-04-16T13:53:02.350892Z DEBUG final message: ; header 52687:QUERY:RD:NoError:QUERY:0/0/0
+cas_1        | ; query
+cas_1        | ;; api.trustedservices.intel.com. IN A
+cas_1        |
+cas_1        | 2024-04-16T13:53:02.351520Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(1a4e9ae0c938078652fbaddb1e766137), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: created socket successfully
+cas_1        | 2024-04-16T13:53:02.352471Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(1a4e9ae0c938078652fbaddb1e766137), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: received message id: 52687
+cas_1        | 2024-04-16T13:53:02.352471Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(1a4e9ae0c938078652fbaddb1e766137), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: Response:; header 52687:RESPONSE:RD,RA:NoError:QUERY:5/0/0
+cas_1        | ; query
+cas_1        | ;; api.trustedservices.intel.com. IN A
+cas_1        | ; answers 5
+cas_1        | api.trustedservices.intel.com. 9 IN CNAME sgxintel.azure-api.net.
+cas_1        | sgxintel.azure-api.net. 9 IN CNAME apimgmttmwi78pmzmm0stfecre4mynxozrbv6dy06xfrig32wb.trafficmanager.net.
+cas_1        | apimgmttmwi78pmzmm0stfecre4mynxozrbv6dy06xfrig32wb.trafficmanager.net. 9 IN CNAME sgxintel-eastus-01.regional.azure-api.net.
+cas_1        | sgxintel-eastus-01.regional.azure-api.net. 9 IN CNAME apimgmthsvmzinmu3tvpglxj0erhgyee9rmyuhzecwzzlnyae0.cloudapp.net.
+cas_1        | apimgmthsvmzinmu3tvpglxj0erhgyee9rmyuhzecwzzlnyae0.cloudapp.net. 9 IN A 40.87.90.88
+cas_1        | ; nameservers 0
+cas_1        | ; additionals 0
+cas_1        |
+cas_1        | 2024-04-16T13:53:02.352624Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}:attest{request=AttestationRequest { kind: IASReport, nonce: Some(1a4e9ae0c938078652fbaddb1e766137), additional_data_version: Some(3), fail_if_not_provisioned: Some(true) }}: Response:; header 52687:RESPONSE:RD,RA:NoError:QUERY:5/0/0
+cas_1        | ; query
+cas_1        | ;; api.trustedservices.intel.com. IN A
+cas_1        | ; answers 5
+cas_1        | api.trustedservices.intel.com. 9 IN CNAME sgxintel.azure-api.net.
+cas_1        | sgxintel.azure-api.net. 9 IN CNAME apimgmttmwi78pmzmm0stfecre4mynxozrbv6dy06xfrig32wb.trafficmanager.net.
+cas_1        | apimgmttmwi78pmzmm0stfecre4mynxozrbv6dy06xfrig32wb.trafficmanager.net. 9 IN CNAME sgxintel-eastus-01.regional.azure-api.net.
+cas_1        | sgxintel-eastus-01.regional.azure-api.net. 9 IN CNAME apimgmthsvmzinmu3tvpglxj0erhgyee9rmyuhzecwzzlnyae0.cloudapp.net.
+cas_1        | apimgmthsvmzinmu3tvpglxj0erhgyee9rmyuhzecwzzlnyae0.cloudapp.net. 9 IN A 40.87.90.88
+cas_1        | ; nameservers 0
+cas_1        | ; additionals 0
+cas_1        |
+cas_1        | 2024-04-16T13:53:02.923965Z DEBUG REST-API:connection{peer=172.18.0.4:37236}:TLS{client_identity=None}:HTTP{path="/v1/attest" method=GET}: Sending response status=200 OK
+^CGracefully stopping... (press Ctrl+C again to force)
+Stopping cas_scone-cli_1 ... done
+Stopping cas_cas_1       ... done
+Stopping cas_las_1       ... done
+ubuntu@cas:~/cas$ docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+e157081fa5b0
+f5c77dea0f9b
+7f740f1e299e
+e157081fa5b0
+f5c77dea0f9b
+7f740f1e299e
+ubuntu@cas:~/cas$ sudo nano cas-compose.yaml
+ubuntu@cas:~/cas$ cat cas-compose.yaml
+version: "3.2"
+services:
+  cas:
+    image: registry.scontain.com/sconecuratedimages/services:cas.preprovisioned-scone5.8.0
+    environment:
+      - SCONE_LAS_ADDR=172.18.0.2
+      - SCONE_VERSION=1
+    ports:
+      - target: 18765
+        published: 18765
+        protocol: tcp
+        mode: host
+      - target: 8081
+        published: 5001
+        protocol: tcp
+        mode: host
+    devices:
+      - /dev/sgx_enclave
+    restart: always
+ubuntu@cas:~/cas$ docker-compose -f las-compose.yaml up
+Creating cas_las_1 ... done
+Attaching to cas_las_1
+las_1  | 2024/04/16 13:56:05 socat[8] E connect(6, AF=1 "/var/run/aesmd/aesm.socket", 28): No such file or directory
+las_1  | /var/run/aesmd/aesm.socket not found or unable to connect - Starting local in-container AESM service
+las_1  | WARNING: Container runs without TTY. Azure DCAP QPL Log messages won't be visible.
+las_1  | Please run this container with TTY with the '-t' option in docker run, 'tty: true' in helm charts or docker-compose files.
+las_1  | The path of system bundle: System Bundle
+las_1  | ecdsa_quote_service_bundle_name:2.0.0
+las_1  | epid_quote_service_bundle_name:2.0.0
+las_1  | le_launch_service_bundle_name:2.0.0
+las_1  | linux_network_service_bundle_name:2.0.0
+las_1  | pce_service_bundle_name:2.0.0
+las_1  | quote_ex_service_bundle_name:2.0.0
+las_1  | system_bundle:4.0.0
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov] 'SCONE_QPL_DCAP_KEY' environment variable is not set.
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov] The SCONE Quote Provider Library (QPL) is not self-serving, i.e., it won't be able to fetch PCK certificates on its own.
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov] Instead its PCK certificate will be provisioned during the first DCAP quoting request (if necessary).
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov] 'SCONE_QPL_PATH' environment variable is not set. Using default QPL path.
+las_1  | [2024-04-16T13:56:05Z INFO  dcap_quoteprov] Using /opt/scone/qpl_pck_cert.pem to store platform PCK certificate.
+las_1  | Failed to set logging callback for the quote provider library.
+las_1  | The server sock is 0x5604e426f2e0
+las_1  | [10000:INFO@16.04.2024/13:56:05] STARTER: SCONE version: 5.8.0 (2023-06-08 15:13:27)
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov] 'SCONE_QPL_DCAP_KEY' environment variable is not set.
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov] The SCONE Quote Provider Library (QPL) is not self-serving, i.e., it won't be able to fetch PCK certificates on its own.
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov] Instead its PCK certificate will be provisioned during the first DCAP quoting request (if necessary).
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov] 'SCONE_QPL_PATH' environment variable is not set. Using default QPL path.
+las_1  | [2024-04-16T13:56:05Z INFO  dcap_quoteprov] Using /opt/scone/qpl_pck_cert.pem to store platform PCK certificate.
+las_1  | [01000:WARNING@16.04.2024/13:56:05] STARTER: SCONE Quoting Enclave (QE) runs in debug mode. This is not secure!
+las_1  | [10000:INFO@16.04.2024/13:56:05] APP: Creating LasHello target information message.
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov::ffi::qpl] qe_id: fc2582fb8f896a9f6926c22a6d85fc11
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov::ffi::qpl] platform cpu svn: 02150205ff8002000000000000000000
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov::ffi::qpl] platform pce isv svn: 14
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov::ffi::qpl] encrypted ppid: Some("b4badc0c5acc1b998a72d609bd3c41f65c895441ec0e3b89e992c4b3c455436632ebb6e6b0427104e8d788269d0986c0be2ed144c081b4589c0bc13bc88b4021b2c250b449065b74e591f3ea59dee06699e19b0cdf08840b7791531cbdb1c46d610b6b0b739a6084a50215eb74d6e0d8d0aa5162b18110e6efff29c424a52ef9c03269ed0b1cd8d87d5443ee0bf900c53b64b3d3e08e4b884499ae84de288bb66edd75c577783be582007a05b05f16c1f1caf6452e55fc574f444ce7edb8bea131ce71d951a5cf2d9e50996e2fa84427f803e804825d8fb16f3ec1197dcc8ccd47b178043a54659257a46e2ff8cbfd7962c97d59ea536163055e130d029730dbfa29b94c218417a88a80e907c6c48275e7b23bd17a89f970074e08e6a863909ad4148db2f6d99001e9208ad5be06ec79dd538182ecc3059a41401db3094ddc59b7d939501de5aaffc895327f01999ff50fde5805198eaa6af3715cc0facdaf64d5fb4252efeef8983fb0266d9ae5b7cb3e9551f639ea6880456ac95861dbb145")
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov::ffi::qpl] pce id: 0
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov::ffi::qpl] Platform PCK certificate not found in local PCK store
+las_1  | [2024-04-16T13:56:05Z DEBUG dcap_quoteprov::ffi::qpl] Would have queried DCAP API but 'SCONE_QPL_DCAP_KEY' environment variable is not set
+las_1  | [get_platform_quote_cert_data ../qe_logic.cpp:378] Error returned from the p_sgx_get_quote_config API. 0xe00e
+las_1  | [10000:INFO@16.04.2024/13:56:05] DCAP: DCAP quoting is available
+las_1  | [ADMIN]EPID Provisioning initiated
+las_1  | The Request ID is 1192fd111d734494a467f960ba828544
+las_1  | The Request ID is e42cd780cc364b3aa0c751c5eba66ee7
+las_1  | [ADMIN]EPID Provisioning successful
+las_1  | [10000:INFO@16.04.2024/13:56:06] STARTER: SCONE QE has MRENCLAVE 4603BF83BE20AF3F2EB168ABCD12C43080CFA0146477AA4C6DD76310539B9E60
+las_1  | [10000:INFO@16.04.2024/13:56:06] STARTER: SCONE QE has public key 62F33C07FFCAAB563735CF2DB774B21397623700C97D36056210C0D5ED0B74C5
+las_1  | [10000:INFO@16.04.2024/13:56:06] STARTER: Setting up LAS to listening on :::18766
+las_1  | [10000:INFO@16.04.2024/13:56:06] STARTER: LAS started listening ...
+^CGracefully stopping... (press Ctrl+C again to force)
+Stopping cas_las_1 ...
+Stopping cas_las_1 ... done
+ubuntu@cas:~/cas$
+ubuntu@cas:~/cas$ docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+813bbcd96511
+813bbcd96511
+ubuntu@cas:~/cas$ sudo nano las-compose.yaml
+ubuntu@cas:~/cas$ sudo nano las-compose.yaml
+ubuntu@cas:~/cas$ docker-compose -f las-compose.yaml up
+Creating cas_las_1 ... done
+Attaching to cas_las_1
+las_1  | 2024/04/16 13:57:46 socat[8] E connect(6, AF=1 "/var/run/aesmd/aesm.socket", 28): No such file or directory
+las_1  | /var/run/aesmd/aesm.socket not found or unable to connect - Starting local in-container AESM service
+las_1  | WARNING: Container runs without TTY. Azure DCAP QPL Log messages won't be visible.
+las_1  | Please run this container with TTY with the '-t' option in docker run, 'tty: true' in helm charts or docker-compose files.
+las_1  | The path of system bundle: System Bundle
+las_1  | ecdsa_quote_service_bundle_name:2.0.0
+las_1  | epid_quote_service_bundle_name:2.0.0
+las_1  | le_launch_service_bundle_name:2.0.0
+las_1  | linux_network_service_bundle_name:2.0.0
+las_1  | pce_service_bundle_name:2.0.0
+las_1  | quote_ex_service_bundle_name:2.0.0
+las_1  | system_bundle:4.0.0
+las_1  | [2024-04-16T13:57:46Z DEBUG dcap_quoteprov] 'SCONE_QPL_PATH' environment variable is not set. Using default QPL path.
+las_1  | [2024-04-16T13:57:46Z INFO  dcap_quoteprov] Using /opt/scone/qpl_pck_cert.pem to store platform PCK certificate.
+las_1  | Failed to set logging callback for the quote provider library.
+las_1  | The server sock is 0x55cc2d02a2e0
+las_1  | [10000:INFO@16.04.2024/13:57:47] STARTER: SCONE version: 5.8.0 (2023-06-08 15:13:27)
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov] 'SCONE_QPL_PATH' environment variable is not set. Using default QPL path.
+las_1  | [2024-04-16T13:57:47Z INFO  dcap_quoteprov] Using /opt/scone/qpl_pck_cert.pem to store platform PCK certificate.
+las_1  | [01000:WARNING@16.04.2024/13:57:47] STARTER: SCONE Quoting Enclave (QE) runs in debug mode. This is not secure!
+las_1  | [10000:INFO@16.04.2024/13:57:47] APP: Creating LasHello target information message.
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::ffi::qpl] qe_id: fc2582fb8f896a9f6926c22a6d85fc11
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::ffi::qpl] platform cpu svn: 02150205ff8002000000000000000000
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::ffi::qpl] platform pce isv svn: 14
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::ffi::qpl] encrypted ppid: Some("0a20d7d6b2921b3479c0e21d8ab63ae3c5513691e03581cd7c96f590d68b19b8ce7cd7f864f2f338d65a9b426138bc3b0380e27705c31bb96cee8b916f1505eb15b8b6281d2be7b3e1b5d01b34524ee1c6973a963f915301a04e6d509055c399e574dac65d81e9d34e5d8e86688b231d6c6e8bd941a7cf1dbd37673a71850a5ce38b17cea372a12a9f54f926b5f0daa4607848daf264b1d8cc55b2fe2d87fe22849660a9ed7d8d14fbd37c4ab90e5558e4e81ce0b9e3778ff2e48d21f756b939f24418b9a1f1cb0a3380347ea00287ccef2c4bd4329ed161a34cea3f9e58cfa807e0ccb8472794e1ade3aa61d83dbe1b55b016dc4933350e70e81852519bc170dc3d70e381f7018f7ff7b22eefcd351e48e44d4bf7baea9c37472be0e46dcfdf516c4336cc0e3928147bb669dde476450e1dd60220beae74f76566d10128a8c545c697a10148beff2e93f98085f003cecf4f6a16010fc362f914a8f69cd5712f73266b9ae8ee01f779c7910f1c9a72b43f7137cf57781cf8de68adfb1a0dbc4c")
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::ffi::qpl] pce id: 0
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::pck_cert_store] Unable to load platform PCK certificate: The file doesn't exist.
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::ffi::qpl] Platform PCK certificate not found in local PCK store
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::ffi::qpl] DCAP subscription key is available - querying Intel PCS API for PCK certificate
+las_1  | [2024-04-16T13:57:47Z DEBUG reqwest::connect] starting new connection: https://api.trustedservices.intel.com/
+las_1  | [2024-04-16T13:57:47Z DEBUG rustls::client::hs] No cached session for DnsName(DnsName(DnsName("api.trustedservices.intel.com")))
+las_1  | [2024-04-16T13:57:47Z DEBUG rustls::client::hs] Not resuming any session
+las_1  | [2024-04-16T13:57:47Z DEBUG rustls::client::hs] Using ciphersuite TLS13_AES_256_GCM_SHA384
+las_1  | [2024-04-16T13:57:47Z DEBUG rustls::client::tls13] Not resuming
+las_1  | [2024-04-16T13:57:47Z DEBUG rustls::client::tls13] TLS1.3 encrypted extensions: [ServerNameAck]
+las_1  | [2024-04-16T13:57:47Z DEBUG rustls::client::hs] ALPN protocol is None
+las_1  | [2024-04-16T13:57:47Z DEBUG rustls::client::tls13] Ticket saved
+las_1  | [2024-04-16T13:57:47Z INFO  dcap_quoteprov::ffi::qpl] Obtained PCK cert from DCAP PCS API
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::ffi::qpl] Delivering the PCK cert PckCertificateChain {
+las_1  |         chain: -----BEGIN CERTIFICATE-----
+las_1  |         MIIEjTCCBDOgAwIBAgIUF2J7EoqSUjgSy9KIJEUM6/rgkaswCgYIKoZIzj0EAwIw
+las_1  |         cTEjMCEGA1UEAwwaSW50ZWwgU0dYIFBDSyBQcm9jZXNzb3IgQ0ExGjAYBgNVBAoM
+las_1  |         EUludGVsIENvcnBvcmF0aW9uMRQwEgYDVQQHDAtTYW50YSBDbGFyYTELMAkGA1UE
+las_1  |         CAwCQ0ExCzAJBgNVBAYTAlVTMB4XDTI0MDQxNjEzNDI0N1oXDTMxMDQxNjEzNDI0
+las_1  |         N1owcDEiMCAGA1UEAwwZSW50ZWwgU0dYIFBDSyBDZXJ0aWZpY2F0ZTEaMBgGA1UE
+las_1  |         CgwRSW50ZWwgQ29ycG9yYXRpb24xFDASBgNVBAcMC1NhbnRhIENsYXJhMQswCQYD
+las_1  |         VQQIDAJDQTELMAkGA1UEBhMCVVMwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ1
+las_1  |         Uyof9m2atq9ZReXEjV901tza7vzlTm7qtHEKWnULoMfu2thPQGE55dsjMv8I0flt
+las_1  |         okoLo8Z2N7Udz5xM/8VKo4ICqDCCAqQwHwYDVR0jBBgwFoAU0Oiq2nXX+S5JF5g8
+las_1  |         exRl0NXyWU0wbAYDVR0fBGUwYzBhoF+gXYZbaHR0cHM6Ly9hcGkudHJ1c3RlZHNl
+las_1  |         cnZpY2VzLmludGVsLmNvbS9zZ3gvY2VydGlmaWNhdGlvbi92My9wY2tjcmw/Y2E9
+las_1  |         cHJvY2Vzc29yJmVuY29kaW5nPWRlcjAdBgNVHQ4EFgQUYqhE038hdQh1DUYXj0IT
+las_1  |         OQNMNqMwDgYDVR0PAQH/BAQDAgbAMAwGA1UdEwEB/wQCMAAwggHUBgkqhkiG+E0B
+las_1  |         DQEEggHFMIIBwTAeBgoqhkiG+E0BDQEBBBBLQ6DRTfzisTQxl+PyouRFMIIBZAYK
+las_1  |         KoZIhvhNAQ0BAjCCAVQwEAYLKoZIhvhNAQ0BAgECAQIwEAYLKoZIhvhNAQ0BAgIC
+las_1  |         AQIwEAYLKoZIhvhNAQ0BAgMCAQIwEAYLKoZIhvhNAQ0BAgQCAQQwEAYLKoZIhvhN
+las_1  |         AQ0BAgUCAQEwEQYLKoZIhvhNAQ0BAgYCAgCAMBAGCyqGSIb4TQENAQIHAgEAMBAG
+las_1  |         CyqGSIb4TQENAQIIAgEAMBAGCyqGSIb4TQENAQIJAgEAMBAGCyqGSIb4TQENAQIK
+las_1  |         AgEAMBAGCyqGSIb4TQENAQILAgEAMBAGCyqGSIb4TQENAQIMAgEAMBAGCyqGSIb4
+las_1  |         TQENAQINAgEAMBAGCyqGSIb4TQENAQIOAgEAMBAGCyqGSIb4TQENAQIPAgEAMBAG
+las_1  |         CyqGSIb4TQENAQIQAgEAMBAGCyqGSIb4TQENAQIRAgEHMB8GCyqGSIb4TQENAQIS
+las_1  |         BBACAgIEAYAAAAAAAAAAAAAAMBAGCiqGSIb4TQENAQMEAgAAMBQGCiqGSIb4TQEN
+las_1  |         AQQEBgCQbtUAADAPBgoqhkiG+E0BDQEFCgEAMAoGCCqGSM49BAMCA0gAMEUCIQDT
+las_1  |         L7PtV0/3XEXdKrpkKkzUHyetx5+qkWIZoZX5QciOyQIgFtd7fjE53xzPemGSQfBw
+las_1  |         pMZbf6HZlkE0ZXVunH2kaQ0=
+las_1  |         -----END CERTIFICATE-----
+las_1  |         -----BEGIN CERTIFICATE-----
+las_1  |         MIICmDCCAj6gAwIBAgIVANDoqtp11/kuSReYPHsUZdDV8llNMAoGCCqGSM49BAMC
+las_1  |         MGgxGjAYBgNVBAMMEUludGVsIFNHWCBSb290IENBMRowGAYDVQQKDBFJbnRlbCBD
+las_1  |         b3Jwb3JhdGlvbjEUMBIGA1UEBwwLU2FudGEgQ2xhcmExCzAJBgNVBAgMAkNBMQsw
+las_1  |         CQYDVQQGEwJVUzAeFw0xODA1MjExMDUwMTBaFw0zMzA1MjExMDUwMTBaMHExIzAh
+las_1  |         BgNVBAMMGkludGVsIFNHWCBQQ0sgUHJvY2Vzc29yIENBMRowGAYDVQQKDBFJbnRl
+las_1  |         bCBDb3Jwb3JhdGlvbjEUMBIGA1UEBwwLU2FudGEgQ2xhcmExCzAJBgNVBAgMAkNB
+las_1  |         MQswCQYDVQQGEwJVUzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABL9q+NMp2IOg
+las_1  |         tdl1bk/uWZ5+TGQm8aCi8z78fs+fKCQ3d+uDzXnVTAT2ZhDCifyIuJwvN3wNBp9i
+las_1  |         HBSSMJMJrBOjgbswgbgwHwYDVR0jBBgwFoAUImUM1lqdNInzg7SVUr9QGzknBqww
+las_1  |         UgYDVR0fBEswSTBHoEWgQ4ZBaHR0cHM6Ly9jZXJ0aWZpY2F0ZXMudHJ1c3RlZHNl
+las_1  |         cnZpY2VzLmludGVsLmNvbS9JbnRlbFNHWFJvb3RDQS5kZXIwHQYDVR0OBBYEFNDo
+las_1  |         qtp11/kuSReYPHsUZdDV8llNMA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAG
+las_1  |         AQH/AgEAMAoGCCqGSM49BAMCA0gAMEUCIQCJgTbtVqOyZ1m3jqiAXM6QYa6r5sWS
+las_1  |         4y/G7y8uIJGxdwIgRqPvBSKzzQagBLQq5s5A70pdoiaRJ8z/0uDz4NgV91k=
+las_1  |         -----END CERTIFICATE-----
+las_1  |         -----BEGIN CERTIFICATE-----
+las_1  |         MIICjzCCAjSgAwIBAgIUImUM1lqdNInzg7SVUr9QGzknBqwwCgYIKoZIzj0EAwIw
+las_1  |         aDEaMBgGA1UEAwwRSW50ZWwgU0dYIFJvb3QgQ0ExGjAYBgNVBAoMEUludGVsIENv
+las_1  |         cnBvcmF0aW9uMRQwEgYDVQQHDAtTYW50YSBDbGFyYTELMAkGA1UECAwCQ0ExCzAJ
+las_1  |         BgNVBAYTAlVTMB4XDTE4MDUyMTEwNDUxMFoXDTQ5MTIzMTIzNTk1OVowaDEaMBgG
+las_1  |         A1UEAwwRSW50ZWwgU0dYIFJvb3QgQ0ExGjAYBgNVBAoMEUludGVsIENvcnBvcmF0
+las_1  |         aW9uMRQwEgYDVQQHDAtTYW50YSBDbGFyYTELMAkGA1UECAwCQ0ExCzAJBgNVBAYT
+las_1  |         AlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEC6nEwMDIYZOj/iPWsCzaEKi7
+las_1  |         1OiOSLRFhWGjbnBVJfVnkY4u3IjkDYYL0MxO4mqsyYjlBalTVYxFP2sJBK5zlKOB
+las_1  |         uzCBuDAfBgNVHSMEGDAWgBQiZQzWWp00ifODtJVSv1AbOScGrDBSBgNVHR8ESzBJ
+las_1  |         MEegRaBDhkFodHRwczovL2NlcnRpZmljYXRlcy50cnVzdGVkc2VydmljZXMuaW50
+las_1  |         ZWwuY29tL0ludGVsU0dYUm9vdENBLmRlcjAdBgNVHQ4EFgQUImUM1lqdNInzg7SV
+las_1  |         Ur9QGzknBqwwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwCgYI
+las_1  |         KoZIzj0EAwIDSQAwRgIhAOW/5QkR+S9CiSDcNoowLuPRLsWGf/Yi7GSX94BgwTwg
+las_1  |         AiEA4J0lrHoMs+Xo5o/sX6O9QWxHRAvZUGOdRQ7cvqRXaqI=
+las_1  |         -----END CERTIFICATE-----
+las_1  |         ,
+las_1  |         extensions: PckCertificateExtensions {
+las_1  |             ppid: Ppid(
+las_1  |                 [
+las_1  |                     75,
+las_1  |                     67,
+las_1  |                     160,
+las_1  |                     209,
+las_1  |                     77,
+las_1  |                     252,
+las_1  |                     226,
+las_1  |                     177,
+las_1  |                     52,
+las_1  |                     49,
+las_1  |                     151,
+las_1  |                     227,
+las_1  |                     242,
+las_1  |                     162,
+las_1  |                     228,
+las_1  |                     69,
+las_1  |                 ],
+las_1  |             ),
+las_1  |             tcb: Tcb {
+las_1  |                 sgxtcbcompsvns: [
+las_1  |                     2,
+las_1  |                     2,
+las_1  |                     2,
+las_1  |                     4,
+las_1  |                     1,
+las_1  |                     128,
+las_1  |                     0,
+las_1  |                     0,
+las_1  |                     0,
+las_1  |                     0,
+las_1  |                     0,
+las_1  |                     0,
+las_1  |                     0,
+las_1  |                     0,
+las_1  |                     0,
+las_1  |                     0,
+las_1  |                 ],
+las_1  |                 pcesvn: 7,
+las_1  |                 cpusvn: 02020204018000000000000000000000,
+las_1  |             },
+las_1  |             pce_id: [
+las_1  |                 0,
+las_1  |                 0,
+las_1  |             ],
+las_1  |             fmspc: [
+las_1  |                 0,
+las_1  |                 144,
+las_1  |                 110,
+las_1  |                 213,
+las_1  |                 0,
+las_1  |                 0,
+las_1  |             ],
+las_1  |         },
+las_1  |     }
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::pck_cert_store] Updating platform PCK certificate at /opt/scone/qpl_pck_cert.pem ...
+las_1  | [2024-04-16T13:57:47Z DEBUG dcap_quoteprov::pck_cert_store] Platform PCK certificate successfully stored
+las_1  | [2024-04-16T13:57:47Z INFO  dcap_quoteprov::ffi::qpl] Stored obtained PCK cert in store
+las_1  | [10000:INFO@16.04.2024/13:57:47] DCAP: DCAP quoting is available
+las_1  | [ADMIN]EPID Provisioning initiated
+las_1  | The Request ID is bfe348d827da4fd48506859340ef9a8c
+las_1  | The Request ID is 66b8d84738a84a268ba874a537cc7895
+las_1  | [ADMIN]EPID Provisioning successful
+las_1  | [10000:INFO@16.04.2024/13:57:48] STARTER: SCONE QE has MRENCLAVE 4603BF83BE20AF3F2EB168ABCD12C43080CFA0146477AA4C6DD76310539B9E60
+las_1  | [10000:INFO@16.04.2024/13:57:48] STARTER: SCONE QE has public key 62F33C07FFCAAB563735CF2DB774B21397623700C97D36056210C0D5ED0B74C5
+las_1  | [10000:INFO@16.04.2024/13:57:48] STARTER: Setting up LAS to listening on :::18766
+las_1  | [10000:INFO@16.04.2024/13:57:48] STARTER: LAS started listening ...
+las_1  | [10000:INFO@16.04.2024/14:08:24] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:08:24] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1  | [10000:INFO@16.04.2024/14:08:24] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:08:24] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1  | [10000:INFO@16.04.2024/14:10:22] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:10:22] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1  | [10000:INFO@16.04.2024/14:10:22] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:10:22] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1  | [10000:INFO@16.04.2024/14:11:07] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:11:07] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1  | [10000:INFO@16.04.2024/14:11:07] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:11:07] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1  | [10000:INFO@16.04.2024/14:16:52] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:16:52] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:16:52] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1  | [10000:INFO@16.04.2024/14:51:59] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:51:59] CONNECTION_HANDLER: Received quote request
+las_1  | [10000:INFO@16.04.2024/14:52:00] CONNECTION_HANDLER: Received shutdown message. Closing connection...
+las_1  | [10000:INFO@16.04.2024/14:57:48] STARTER: Regenerating LAS Hello Message Information
+las_1  | [10000:INFO@16.04.2024/14:57:48] APP: Creating LasHello target information message.
+las_1  | [2024-04-16T14:57:48Z DEBUG dcap_quoteprov::ffi::qpl] qe_id: fc2582fb8f896a9f6926c22a6d85fc11
+las_1  | [2024-04-16T14:57:48Z DEBUG dcap_quoteprov::ffi::qpl] platform cpu svn: 02150205ff8002000000000000000000
+las_1  | [2024-04-16T14:57:48Z DEBUG dcap_quoteprov::ffi::qpl] platform pce isv svn: 14
+las_1  | [2024-04-16T14:57:48Z DEBUG dcap_quoteprov::ffi::qpl] encrypted ppid: Some("0a20d7d6b2921b3479c0e21d8ab63ae3c5513691e03581cd7c96f590d68b19b8ce7cd7f864f2f338d65a9b426138bc3b0380e27705c31bb96cee8b916f1505eb15b8b6281d2be7b3e1b5d01b34524ee1c6973a963f915301a04e6d509055c399e574dac65d81e9d34e5d8e86688b231d6c6e8bd941a7cf1dbd37673a71850a5ce38b17cea372a12a9f54f926b5f0daa4607848daf264b1d8cc55b2fe2d87fe22849660a9ed7d8d14fbd37c4ab90e5558e4e81ce0b9e3778ff2e48d21f756b939f24418b9a1f1cb0a3380347ea00287ccef2c4bd4329ed161a34cea3f9e58cfa807e0ccb8472794e1ade3aa61d83dbe1b55b016dc4933350e70e81852519bc170dc3d70e381f7018f7ff7b22eefcd351e48e44d4bf7baea9c37472be0e46dcfdf516c4336cc0e3928147bb669dde476450e1dd60220beae74f76566d10128a8c545c697a10148beff2e93f98085f003cecf4f6a16010fc362f914a8f69cd5712f73266b9ae8ee01f779c7910f1c9a72b43f7137cf57781cf8de68adfb1a0dbc4c")
+las_1  | [2024-04-16T14:57:48Z DEBUG dcap_quoteprov::ffi::qpl] pce id: 0
+las_1  | [2024-04-16T14:57:48Z DEBUG dcap_quoteprov::ffi::qpl] Found requested PCK cert in store
+las_1  | [10000:INFO@16.04.2024/14:57:48] DCAP: DCAP quoting is available
+las_1  | [10000:INFO@16.04.2024/15:57:48] STARTER: Regenerating LAS Hello Message Information
+las_1  | [10000:INFO@16.04.2024/15:57:48] APP: Creating LasHello target information message.
+las_1  | [2024-04-16T15:57:48Z DEBUG dcap_quoteprov::ffi::qpl] qe_id: fc2582fb8f896a9f6926c22a6d85fc11
+las_1  | [2024-04-16T15:57:48Z DEBUG dcap_quoteprov::ffi::qpl] platform cpu svn: 02150205ff8002000000000000000000
+las_1  | [2024-04-16T15:57:48Z DEBUG dcap_quoteprov::ffi::qpl] platform pce isv svn: 14
+las_1  | [2024-04-16T15:57:48Z DEBUG dcap_quoteprov::ffi::qpl] encrypted ppid: Some("0a20d7d6b2921b3479c0e21d8ab63ae3c5513691e03581cd7c96f590d68b19b8ce7cd7f864f2f338d65a9b426138bc3b0380e27705c31bb96cee8b916f1505eb15b8b6281d2be7b3e1b5d01b34524ee1c6973a963f915301a04e6d509055c399e574dac65d81e9d34e5d8e86688b231d6c6e8bd941a7cf1dbd37673a71850a5ce38b17cea372a12a9f54f926b5f0daa4607848daf264b1d8cc55b2fe2d87fe22849660a9ed7d8d14fbd37c4ab90e5558e4e81ce0b9e3778ff2e48d21f756b939f24418b9a1f1cb0a3380347ea00287ccef2c4bd4329ed161a34cea3f9e58cfa807e0ccb8472794e1ade3aa61d83dbe1b55b016dc4933350e70e81852519bc170dc3d70e381f7018f7ff7b22eefcd351e48e44d4bf7baea9c37472be0e46dcfdf516c4336cc0e3928147bb669dde476450e1dd60220beae74f76566d10128a8c545c697a10148beff2e93f98085f003cecf4f6a16010fc362f914a8f69cd5712f73266b9ae8ee01f779c7910f1c9a72b43f7137cf57781cf8de68adfb1a0dbc4c")
+las_1  | [2024-04-16T15:57:48Z DEBUG dcap_quoteprov::ffi::qpl] pce id: 0
+las_1  | [2024-04-16T15:57:48Z DEBUG dcap_quoteprov::ffi::qpl] Found requested PCK cert in store
+las_1  | [10000:INFO@16.04.2024/15:57:48] DCAP: DCAP quoting is available
