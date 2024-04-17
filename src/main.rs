@@ -29,7 +29,7 @@ fn main() -> Result<(),  Box<dyn Error>>  {
     let key_pair = EcdsaKeyPair::from_pkcs8(&ECDSA_P256_SHA256_FIXED_SIGNING, pkcs8_bytes.as_ref())?;
     println!("Private Key (PKCS#8):");
 
-    let sig = key_pair.sign(&rng, data)?;
+    let sig = key_pair.sign(&rng, &data)?;
     println!("Signature:");
     // println!("{:?}", sig.as_ref());
     // Verifying the signature
@@ -37,7 +37,7 @@ fn main() -> Result<(),  Box<dyn Error>>  {
 
 
     let peer_public_key = ring::signature::UnparsedPublicKey::new(&ring::signature::ECDSA_P256_SHA256_FIXED, peer_public_key_bytes);
-    peer_public_key.verify(data, sig.as_ref())?;
+    peer_public_key.verify(&data, sig.as_ref())?;
     println!("Signature verified successfully!");
 
     Ok(())
