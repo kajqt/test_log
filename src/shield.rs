@@ -93,6 +93,11 @@ impl LogShield{
         return self.current_signature;
         
     }
+
+    pub fn verify_signature(&self, data: &[u8], sig: Signature) -> bool {
+        let verify_key = VerifyingKey::from(&self.signing_key);
+        verify_key.verify(data, &sig).is_ok()
+    }  
     // pub fn encryptStdio (&self, src: DataBuff, inode_id: u64) -> Result<DataBuff> {  
 
     // }
