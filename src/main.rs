@@ -1,28 +1,28 @@
 mod shield;
+use shield::LogShield;
+use std::fs::File;
+use rand_core::OsRng; 
+use p256::{ecdsa::{SigningKey, Signature, signature::Signer, VerifyingKey, signature::Verifier}};
+use std::io::{self, BufRead, BufReader};
+use std::io::Read;
+
 fn main() {
-    
-    /* 
-        let rng = SystemRandom::new();
-        // Generating ECDSA Key Pair
-        let pkcs8_bytes = EcdsaKeyPair::generate_pkcs8(&ECDSA_P256_SHA256_FIXED_SIGNING, &rng).unwrap();
-        let key_pair = EcdsaKeyPair::from_pkcs8(&ECDSA_P256_SHA256_FIXED_SIGNING, pkcs8_bytes.as_ref()).unwrap();
-        println!("Private Key (PKCS#8):");
-    
-        let sig = key_pair.sign(&rng, &data).unwrap();
-        println!("Signature:");
-        // println!("{:?}", sig.as_ref());
-        // Verifying the signature
-        let peer_public_key_bytes = key_pair.public_key().as_ref();
-    
-        let peer_public_key = ring::signature::UnparsedPublicKey::new(&ring::signature::ECDSA_P256_SHA256_FIXED, peer_public_key_bytes);
-        peer_public_key.verify(&data, sig.as_ref()).unwrap();
-        println!("Signature verified successfully!");
-     */
+    let file = File::open("/Users/kaj/Desktop/phd_code/casetest/src/log.txt").unwrap();
+    let mut reader = BufReader::new(file);
+
+    let mut example_data = Vec::new();
+    reader.read_to_end(&mut example_data).unwrap();
+
+    let random_key = SigningKey::random(&mut OsRng);
+        let init_data = b"Hello, World!";
+        let mut ex_logshield = LogShield::default() ;
+        ex_logshield.init(random_key);
+        ex_logshield.sign(init_data);
         
-        // let signing_key = SigningKey::random(&mut OsRng);
-    
-       
-        // log_shield.init(key_pair);
-          // Ok(())
-    
-    }
+        let s = ex_logshield.show_signature();
+
+        ex_logshield.verify_signature(init_data, s);
+
+        print!("\nValid signature \n");
+
+}

@@ -69,27 +69,15 @@ impl LogShield{
     }
 
     pub fn sign(&mut self, data: &[u8]) -> Signature {
-        let file = File::open("/Users/kaj/Desktop/phd_code/casetest/src/log.txt").unwrap();
-        let mut reader = BufReader::new(file);
+       
 
-        let mut example_data = Vec::new();
-        reader.read_to_end(&mut example_data).unwrap();
 
-        let key2 = SigningKey::random(&mut OsRng);
-        let init_data = b"Hello, World!";
-        let init_sig: Signature = key2.sign(init_data);
-        // let mut log_shield = LogShield {
-        //     key: GenericArray::default(),
-        //     signing_key: key2.clone(),
-        //     current_signature: key2.sign(init_data),
-        // };
-
-        self.current_signature = key2.sign(data);
+        self.current_signature = self.signing_key.sign(data);
         return self.current_signature;
     }
 
     pub fn show_signature(&self) -> Signature {
-        print!("The latest signature {:?}", self.current_signature);
+        print!("The latest signature \n {:?}", self.current_signature);
         return self.current_signature;
         
     }
