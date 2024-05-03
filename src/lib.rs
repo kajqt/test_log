@@ -38,8 +38,23 @@ mod tests {
         ex_logshield.sign(init_data);
         
         let s = ex_logshield.show_signature();
-        ex_logshield.verify_signature(init_data, s);
+        assert!(ex_logshield.verify_signature(init_data, s));
         
+    }
+
+    #[test]
+    fn invalid_signature_verify() {
+        let random_key = SigningKey::random(&mut OsRng);
+        let mut init_data = b"Hello, World!";
+        let mut ex_logshield = LogShield::default() ;
+        ex_logshield.init(random_key);
+        ex_logshield.sign(init_data);
+        
+        let s
+         = ex_logshield.show_signature();
+
+        init_data = b"Hell2, World!";
+        assert!(ex_logshield.verify_signature(init_data, s) == false);
     }
 
     

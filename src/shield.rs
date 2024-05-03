@@ -86,6 +86,12 @@ impl LogShield{
         let verify_key = VerifyingKey::from(&self.signing_key);
         verify_key.verify(data, &sig).is_ok()
     }  
+
+    // pub fn stream_signing (&self, src: Vec<u8>, inode_id: u64) -> Signature {
+    //     let rng = OsRng;
+    //     let sig = self.signing_key.sign(&rng, &src).unwrap();
+    //     return sig;
+    // }
     // pub fn encryptStdio (&self, src: DataBuff, inode_id: u64) -> Result<DataBuff> {  
 
     // }
