@@ -68,6 +68,11 @@ impl LogShield{
         self.signing_key = key;
     }
 
+    pub fn gen_new_random_key(&mut self) -> () {
+    
+        self.signing_key = SigningKey::random(&mut OsRng);
+     }
+
     pub fn sign(&mut self, data: &[u8]) -> Signature {
        
 
