@@ -5,21 +5,12 @@ use std::io::{self, BufRead, BufReader};
 use std::io::Read;
 use log::*;
 use std::error::Error;
-// use ed25519::Signature;
-// use std::os::unix::ucred::impl_mac;
-// use rand::{rngs::OsRng};
-// use ring::hmac::sign;
+
 
 
 use rand_core::OsRng; 
-// use k256::ecdsa::{SigningKey, Signature,  signature::Signer};
-// use signature::{Signer, Verifier};
-
-
 extern crate aes_gcm;
 
-// use ring::{rand::SystemRandom, signature::{EcdsaKeyPair, ECDSA_P256_SHA256_FIXED_SIGNING, Signature, KeyPair}};
-// use ring::signature::UnparsedPublicKey;
 
 use aes_gcm::{
     aead::{generic_array::{GenericArray, typenum::U32}},
