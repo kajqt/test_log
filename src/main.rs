@@ -41,14 +41,21 @@ fn main() {
 
     let _ = io::stdout().flush();
     io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
+
+    
+
     let random_key = SigningKey::random(&mut OsRng);
     let mut ex_logshield = LogShield::default();
     ex_logshield.init(random_key);
 
     let mut counter = 0;
     while !!!buffer.is_empty() {
-        // println!("line: {}", buffer);
-        let example_data = buffer.as_bytes();
+        
+        // let example_data = buffer.as_bytes();
+        let mut stdin = io::stdin().lock();
+        let mut buffer2 = stdin.fill_buf().unwrap();
+        let example_data = buffer2;
+        // println!("line: {:?}", example_data);
         // io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
         // reader.read_to_end(&mut example_data).unwrap();
         
@@ -62,6 +69,8 @@ fn main() {
         assert!(check, "Signature is not valid");
         print!("\nValid signature \n");
         print!("Done!!\n");
+        // stdin = io::stdin().lock();
+        // buffer2 = &stdin.fill_buf().unwrap();
     }
   
     // Ok(())

@@ -61,8 +61,6 @@ impl Default for LogShield {
 impl LogShield{
 
     pub fn init(&mut self, key: SigningKey) -> () {
-    
-    
        // self.key = policy.unwrap().secret.file_encryption_key.as_bytes().to_vec();
         // self.signing_key = signing_key.clone();
         self.signing_key = key;
