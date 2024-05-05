@@ -80,7 +80,7 @@ impl LogShield{
     }
 
     pub fn show_signature(&self) -> Signature {
-        print!("The latest signature \n {:?}", self.current_signature);
+        print!("The signature \n {:?}", self.current_signature);
         return self.current_signature;
         
     }

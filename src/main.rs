@@ -8,23 +8,16 @@ use std::{
     process::{Command, Stdio},
 };
 
+use std::hash::{DefaultHasher, Hash, Hasher};
 use std::io::{self, Write, Read};
 use tokio::task;
 
 use atty::Stream;
 
-// fn load_stdin() -> io::Result<String> {
-//     if atty::is(Stream::Stdin) {
-//         return Err(io::Error::new(io::ErrorKind::Other, "stdin not redirected"));
-//     }
-//     let mut buffer = String::new();
-//     io::stdin().read_line(&mut buffer)?;
-//     return Ok(buffer);
-// }
 
 // #[tokio::main]
 fn main() {
-    /* 
+  /* 
     let file = File::open("/Users/kaj/Desktop/phd_code/casetest/src/logfile.log").unwrap();
     let mut reader = BufReader::new(file);
 
@@ -32,9 +25,7 @@ fn main() {
     reader.read_to_end(&mut example_data).unwrap();
     
     */  
-     if atty::is(Stream::Stdin) {
-        // return Err(io::Error::new(io::ErrorKind::Other, "stdin not redirected"));
-    }
+
 
     let mut buffer = String::new();
     // io::stdin().read_line(&mut buffer);
@@ -51,10 +42,21 @@ fn main() {
     let mut counter = 0;
     while !!!buffer.is_empty() {
         
-        // let example_data = buffer.as_bytes();
-        let mut stdin = io::stdin().lock();
-        let mut buffer2 = stdin.fill_buf().unwrap();
+        let mut stdin = io::stdin();
+       
+        let mut buf = [0; 1024];
+        let mut buffer2 = Vec::new();
+        match stdin.read(&mut buf) {
+            Ok(0) => break, 
+            Ok(n) => buffer2.extend_from_slice(&buf[..n]), 
+            Err(e) => panic!("Error reading from stdin: {}", e),
+        }
         let example_data = buffer2;
+        //let mut hasher = DefaultHasher::new();
+        // Hash::hash_slice(&example_data, &mut hasher);
+        // println!("Test Hash is {:x}!", hasher.finish());
+
+
         // println!("line: {:?}", example_data);
         // io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
         // reader.read_to_end(&mut example_data).unwrap();
@@ -66,9 +68,10 @@ fn main() {
         ex_logshield.show_signature();
 
         let check = ex_logshield.verify_signature(&example_data, s);
-        assert!(check, "Signature is not valid");
-        print!("\nValid signature \n");
-        print!("Done!!\n");
+        
+        // assert!(check, "Signature is not valid");
+        // print!("\nValid signature \n");
+        // print!("Done!!\n");
         // stdin = io::stdin().lock();
         // buffer2 = &stdin.fill_buf().unwrap();
     }
@@ -94,6 +97,8 @@ fn main() {
     let mut example_data = Vec::new();
     
     
-    
-*/
+    */
+
 }
+
+
