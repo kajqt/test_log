@@ -41,7 +41,21 @@ fn main() {
 
     let mut counter = 0;
     while !!!buffer.is_empty() {
-        
+      
+        /* 
+        let stdin = io::stdin();
+        let mut stdin = stdin.lock();
+
+        let buffer = stdin.fill_buf().unwrap();
+
+        // work with buffer
+        println!("{buffer:?}");
+
+        // ensure the bytes we worked with aren't returned again later
+        let length = buffer.len();
+        stdin.consume(length);
+      */
+         
         let mut stdin = io::stdin();
        
         let mut buf = [0; 1024];

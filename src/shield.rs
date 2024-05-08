@@ -1,21 +1,22 @@
 use p256::{ecdsa::{SigningKey, Signature, signature::Signer, VerifyingKey, signature::Verifier}};
 use std::fs::File;
-
+use anyhow::{anyhow, Result};
 use std::io::{self, BufRead, BufReader};
 use std::io::Read;
 use log::*;
 use std::error::Error;
 
+// use crate::aes_gcm::{
+//     aead::{Aead, KeyInit, OsRng, generic_array::{GenericArray, typenum::U32}, rand_core::RngCore},
+//     Aes256Gcm, Nonce, // Or `Aes128Gcm`
+// };
 
-
-use rand_core::OsRng; 
-extern crate aes_gcm;
-
+// use rand_core::OsRng; 
 
 use aes_gcm::{
-    aead::{generic_array::{GenericArray, typenum::U32}},
+    aead::{Aead, KeyInit, OsRng, generic_array::{GenericArray, typenum::U32}, rand_core::RngCore},
+    Aes256Gcm, Nonce, // Or `Aes128Gcm`
 };
-
 
 
 
@@ -49,6 +50,8 @@ impl Default for LogShield {
     }
 }
 
+const NONCE_LENGTH: usize = 12;
+
 impl LogShield{
 
     pub fn init(&mut self, key: SigningKey) -> () {
@@ -60,12 +63,24 @@ impl LogShield{
     pub fn gen_new_random_key(&mut self) -> () {
     
         self.signing_key = SigningKey::random(&mut OsRng);
-     }
+    }
 
+    pub fn encrypt(plain_txt: &[u8], key: &GenericArray<u8, U32>) -> Result<(Vec<Vec<u8>>, Vec<u8>)> {
+        let cipher = Aes256Gcm::new(key);
+    
+        let mut nonce_rnd = vec![0; NONCE_LENGTH];
+        OsRng.fill_bytes(&mut nonce_rnd);
+        // random_bytes(&mut nonce_rnd);
+        let nonce = Nonce::from_slice(&nonce_rnd);
+    
+        let encrypt_msg = cipher.encrypt(nonce, plain_txt);
+    
+        let mut cipher_txt = Vec::new();
+        // cipher_txt.extend_from_slice(&nonce_rnd);
+        cipher_txt.extend(encrypt_msg);
+        Ok((cipher_txt, nonce_rnd.to_vec()))
+    }
     pub fn sign(&mut self, data: &[u8]) -> Signature {
-       
-
-
         self.current_signature = self.signing_key.sign(data);
         return self.current_signature;
     }
@@ -96,3 +111,6 @@ impl LogShield{
     // }
 }
 
+// AES-GCM
+// HASH for each block
+// Data -> divide into blocks -> encrypt each block -> hash -> sign each block -> write to disk

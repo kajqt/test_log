@@ -1,4 +1,5 @@
 mod shield;
+mod common;
 use shield::LogShield;
 use std::fs::File;
 use rand_core::OsRng; 
