@@ -39,7 +39,7 @@ fn main() {
     let mut ex_logshield = LogShield::default();
     ex_logshield.init(random_key);
 
-    let mut counter = 0;
+    let mut counter: u32 = 0;
     while !!!buffer.is_empty() {
       
         /* 
@@ -66,25 +66,24 @@ fn main() {
             Err(e) => panic!("Error reading from stdin: {}", e),
         }
         let example_data = buffer2;
-        //let mut hasher = DefaultHasher::new();
-        // Hash::hash_slice(&example_data, &mut hasher);
-        // println!("Test Hash is {:x}!", hasher.finish());
+        
+        
 
 
         // println!("line: {:?}", example_data);
         // io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
         // reader.read_to_end(&mut example_data).unwrap();
         
-        let s = ex_logshield.sign(&example_data);
+        let newOutputBlock = ex_logshield.sign(counter, &example_data);
         
-        print!("Sign {counter}\n");
+        print!("Cnt {counter}\n");
         counter +=1;
         ex_logshield.show_signature();
 
-        let check = ex_logshield.verify_signature(&example_data, s);
+        let check = ex_logshield.verify_signature(&example_data, newOutputBlock.signature);
         
-        // assert!(check, "Signature is not valid");
-        // print!("\nValid signature \n");
+        assert!(check, "Signature is not valid");
+        print!("\n-> Verify : OK \n");
         // print!("Done!!\n");
         // stdin = io::stdin().lock();
         // buffer2 = &stdin.fill_buf().unwrap();

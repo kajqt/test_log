@@ -5,7 +5,7 @@ use std::io::{self, BufRead, BufReader};
 use std::io::Read;
 use log::*;
 use std::error::Error;
-
+use std::hash::{DefaultHasher, Hash, Hasher};
 // use crate::aes_gcm::{
 //     aead::{Aead, KeyInit, OsRng, generic_array::{GenericArray, typenum::U32}, rand_core::RngCore},
 //     Aes256Gcm, Nonce, // Or `Aes128Gcm`
@@ -19,6 +19,13 @@ use aes_gcm::{
 };
 
 
+pub struct SignedBlock{
+    pub id: u32,
+    pub enrypted_data: Vec<u8>,
+    pub signature: Signature,
+    pub length: usize,
+    pub mac: Vec<u8>
+}
 
 #[derive(Debug)]
 pub struct LogShield {
@@ -80,20 +87,44 @@ impl LogShield{
         cipher_txt.extend(encrypt_msg);
         Ok((cipher_txt, nonce_rnd.to_vec()))
     }
-    pub fn sign(&mut self, data: &[u8]) -> Signature {
-        self.current_signature = self.signing_key.sign(data);
-        return self.current_signature;
+
+    pub fn sign(&mut self, cnt: u32, data: &[u8]) -> SignedBlock {
+        let mut hasher = DefaultHasher::new();
+        Hash::hash_slice(&data, &mut hasher);
+        let x =  hasher.finish();
+        println!("\nHash is {:x}!", x);
+        self.current_signature = self.signing_key.sign(&x.to_be_bytes());
+        let block = SignedBlock{
+            id: cnt,
+            enrypted_data: data.to_vec(),
+            signature: self.current_signature,
+            length: data.len(),
+            mac: x.to_be_bytes().to_vec()
+        };
+        return block;
     }
 
     pub fn show_signature(&self) -> Signature {
+        
         print!("The signature \n {:?}", self.current_signature);
         return self.current_signature;
         
     }
 
     pub fn verify_signature(&self, data: &[u8], sig: Signature) -> bool {
+        let mut hasher = DefaultHasher::new();
+        Hash::hash_slice(&data, &mut hasher);
+        let hash =  hasher.finish();
         let verify_key = VerifyingKey::from(&self.signing_key);
-        verify_key.verify(data, &sig).is_ok()
+        verify_key.verify(&hash.to_be_bytes(), &sig).is_ok()
+    }  
+
+    pub fn verify_block(&self, data: &[u8], block: SignedBlock) -> bool {
+        let mut hasher = DefaultHasher::new();
+        Hash::hash_slice(&data, &mut hasher);
+        let hash =  hasher.finish();
+        let verify_key = VerifyingKey::from(&self.signing_key);
+        verify_key.verify(&hash.to_be_bytes(), &block.signature).is_ok()
     }  
 
     // pub fn stream_signing (&self, src: Vec<u8>, inode_id: u64) -> Signature {
