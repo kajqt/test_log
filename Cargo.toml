@@ -1,18 +1,29 @@
 [package]
-name = "casetest"
+name = "logshield"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+aes = "0.8.4"
 aes-gcm = "0.10.1"
 anyhow = "1.0.83"
 atty = "0.2.14"
 ecdsa = "0.16.9"
+generic-array = "1.0.0"
 lazy_static = "1.4.0"
 log = "0.4.21"
-p256 = "0.9.0"
+p384 = "0.13.0"
 rand_core = "0.6.4"
 tokio = "1.37.0"
 
+
+[[bin]]
+name = "daemon"
+path = "src/daemon/bin/main.rs"
+
+
+[[bin]]
+name = "verifier"
+path = "src/verifier/bin/main.rs"

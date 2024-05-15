@@ -1,8 +1,8 @@
-mod shield;
-use shield::LogShield;
+use logshield::shield::LogShield;
+// use ecdsa::VerifyingKey;
 use std::fs::File;
 use rand_core::OsRng; 
-use p256::{ecdsa::{SigningKey, Signature, signature::Signer, VerifyingKey, signature::Verifier}};
+use p384::{ecdsa::{SigningKey, Signature, signature::Signer, VerifyingKey, signature::Verifier}};
 use std::{
     io::{BufReader, BufRead},
     process::{Command, Stdio},
@@ -39,22 +39,12 @@ fn main() {
     let mut ex_logshield = LogShield::default();
     ex_logshield.init(random_key);
 
-    let mut counter: u32 = 0;
+    let mut seq: u32 = 0;
+    let mut cnt: u32 = 0;
+
+    
+
     while !!!buffer.is_empty() {
-      
-        /* 
-        let stdin = io::stdin();
-        let mut stdin = stdin.lock();
-
-        let buffer = stdin.fill_buf().unwrap();
-
-        // work with buffer
-        println!("{buffer:?}");
-
-        // ensure the bytes we worked with aren't returned again later
-        let length = buffer.len();
-        stdin.consume(length);
-      */
          
         let mut stdin = io::stdin();
        
@@ -65,8 +55,9 @@ fn main() {
             Ok(n) => buffer2.extend_from_slice(&buf[..n]), 
             Err(e) => panic!("Error reading from stdin: {}", e),
         }
+        let len = buffer2.len();
         let example_data = buffer2;
-        
+       
         
 
 
@@ -74,16 +65,17 @@ fn main() {
         // io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
         // reader.read_to_end(&mut example_data).unwrap();
         
-        let newOutputBlock = ex_logshield.sign(counter, &example_data);
+        let newOutputBlock = ex_logshield.sign(cnt, seq, &example_data);
         
-        print!("Cnt {counter}\n");
-        counter +=1;
+        // print!("Cnt {cnt}, Seq {seq}, len {len} \n");
+        seq += len as u32; 
+        cnt += 1;
         ex_logshield.show_signature();
 
         let check = ex_logshield.verify_signature(&example_data, newOutputBlock.signature);
         
         assert!(check, "Signature is not valid");
-        print!("\n-> Verify : OK \n");
+        // print!("\n-> Verify : OK \n");
         // print!("Done!!\n");
         // stdin = io::stdin().lock();
         // buffer2 = &stdin.fill_buf().unwrap();

@@ -3,7 +3,7 @@ mod common;
 use shield::LogShield;
 use std::fs::File;
 use rand_core::OsRng; 
-use p256::{ecdsa::{SigningKey, Signature, signature::Signer, VerifyingKey, signature::Verifier}};
+use p384::{ecdsa::{SigningKey, Signature, signature::Signer, VerifyingKey, signature::Verifier}};
 
 use std::sync::Mutex;
 use lazy_static::lazy_static;
@@ -58,5 +58,19 @@ mod tests {
         assert!(ex_logshield.verify_signature(init_data, s) == false);
     }
 
+    #[test]
+    fn encrypt_decrypt() {
+        let random_key = SigningKey::random(&mut OsRng);
+        let init_data = b"Hello, World!";
+        let mut ex_logshield = LogShield::default() ;
+    
+        ex_logshield.gen_random_enc_key();
+        let (enc, nonce)  = ex_logshield.encrypt(init_data).unwrap();
+        // println!("The encrypted data is {:?}", enc);
+        let dec = ex_logshield.decrypt(&enc, &nonce).unwrap();
+        assert_eq!(&dec,  b"Hello, World!");
+        // println!("The decrypted data is {:?}", dec);
+
+    }
     
 }
