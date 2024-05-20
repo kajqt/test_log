@@ -4,10 +4,12 @@ use std::mem::size_of_val;
 use aes::cipher::generic_array::{typenum::U16, GenericArray};
 use std::io::{self, Write, Read};
 use p384::{ecdsa::{ Signature, signature::Signer, VerifyingKey, signature::Verifier}};
+use hex_literal::hex;
 fn main() {
 
     let shield = LogShield::default();
     let verify_key = shield.read_verify_key_from_file("../casetest/verify_key.json");
+    print!("Verifying Key: {:?}\n", verify_key);
     let mut buffer = String::new();
     // io::stdin().read_line(&mut buffer);
 
@@ -19,10 +21,12 @@ fn main() {
 
     // let mut seq: u32 = 0;
     // let mut cnt: u32 = 0;
-
+    let mut round = 0;
 
     // print!("Verifying Key: {:?}\n", verifyingKey);
     while !!!buffer.is_empty() {
+        print!("Round: {}\n", round);
+        round += 1;
       
         /* 
         let stdin = io::stdin();
@@ -39,30 +43,45 @@ xa
       */
          
         let mut stdin = io::stdin();
+        // let x = hex!("6b9d3dad2e1b8c1c05b19875b6659f4de23c3b667bf297ba9aa47740787137d896d5724e4c70a825f872c9ea60d2edf5");
+       
+        // println!("The usize of x is {}", size_of_val(&x));
        
         let mut bufhash = [0; 8];
         let mut buffer2 = Vec::new();
+
+        
+
         match stdin.read(&mut bufhash) {
             Ok(0) => break, 
             Ok(n) => buffer2.extend_from_slice(&bufhash[..n]), 
             Err(e) => panic!("Error reading from stdin: {}", e),
         }
-        let bufsig: [u8; 384] = [0; 384];
-        match stdin.read(&mut bufhash) {
+        
+        println!("The usize of hash is {}", size_of_val(&bufhash));
+        print!("Hash: {:?}\n", bufhash);
+        let mut bufsig: [u8; 96] = [0; 96];
+        buffer2 = Vec::new();
+        match stdin.read(&mut bufsig) {
             Ok(0) => break, 
-            Ok(n) => buffer2.extend_from_slice(&bufhash[..n]), 
+            Ok(n) => buffer2.extend_from_slice(&bufsig[..n]), 
             Err(e) => panic!("Error reading from stdin: {}", e),
         }
         let len = buffer2.len();
-       
+        print!("Sig: {:?}\n", bufsig);
         println!("The usize of signature is {}", size_of_val(&bufsig));
-        let example_data = buffer2;
+        // let example_data = buffer2;
         // let bytes = GenericArray::clone_from_slice(&bufsig);
         // println!("The usize of hash stdin is {}", size_of_val(&bufhash));
-        
+        // print!("Signature: {:?}\n", bufsig);
 
         let sig = Signature::from_slice(&bufsig).unwrap();
-        shield.verify_signature(&bufhash, sig);
+        
+        if shield.verify_signature_byhash(&bufhash, sig,verify_key){
+            println!("Signature is valid");
+        } else {
+            println!("Signature is not valid");
+        }
         
 
 

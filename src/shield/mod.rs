@@ -1,4 +1,5 @@
-use p384::{ecdsa::{SigningKey, Signature, signature::Signer, VerifyingKey, signature::Verifier}};
+// use ecdsa::VerifyingKey;
+use p384::{ecdsa::{signature::{Signer, Verifier}, Signature, SigningKey, VerifyingKey}, pkcs8::der::Encode};
 use std::fs::File;
 use anyhow::{anyhow, Result};
 use std::io::{self, BufRead, BufReader};
@@ -72,6 +73,8 @@ impl LogShield{
         let verify_key = VerifyingKey::from(&self.signing_key);
         let serialized = verify_key.to_sec1_bytes();
         fs::write("verify_key.json", serialized).expect("Unable to write file");
+        // fs.close()
+        print!("Verify Key <in daemon>: {:?}\n", verify_key);
 
     }
 
@@ -114,9 +117,14 @@ impl LogShield{
         Hash::hash_slice(&data, &mut hasher);
         let x =  hasher.finish();
         // print hash value
-        println!("{:x}", x);
+        // println!(" Show hash {:?}", &x.to_be_bytes());
         // println!("The usize of hash is {}", size_of_val(&x));
         self.current_signature = self.signing_key.sign(&x.to_be_bytes());
+        // let verifyKey = VerifyingKey::from(&self.signing_key);
+        // print!("Verifying Key: {:?}\n", verifyKey);
+        // let a = verifyKey.verify(&x.to_be_bytes(), &self.current_signature ).is_ok();
+        // print!("Verify???: {:?}\n", a);
+        // println!(" sig??? {:?}",  &self.current_signature) ;
         let block = SignedBlock{
             nBlocks: cnt,
             seq: seq,
@@ -130,14 +138,14 @@ impl LogShield{
 
     pub fn show_signature(&self) -> Signature {
         // Print out signature
-        print!("{:?}", self.current_signature);
-        // println!("The usize of signature is {}", size_of_val(&self.current_signature));
+        // println!("Show sig {:?}", self.current_signature.to_bytes().as_slice());
+        // println!("The usize of signature is {}", size_of_val(self.current_signature.to_bytes().as_slice()));
         return self.current_signature;
         
     }
 
     pub fn verify_signature(&self, data: &[u8], sig: Signature) -> bool {
-        print!("Verifying Key2");
+
         let mut hasher = DefaultHasher::new();
         Hash::hash_slice(&data, &mut hasher);
         let hash =  hasher.finish();
@@ -148,14 +156,14 @@ impl LogShield{
  
     }  
 
-    pub fn verify_signature_byhash(&self, hash: &[u8], sig: Signature) -> bool {
+    pub fn verify_signature_byhash(&self, hash: &[u8], sig: Signature, vKey: VerifyingKey) -> bool {
         // let mut hasher = DefaultHasher::new();
         // Hash::hash_slice(&data, &mut hasher);
         // let hash =  hasher.finish();
-        let verify_key = VerifyingKey::from(&self.signing_key);
+        // let verify_key = VerifyingKey::from(&self.signing_key);
         
-        // print!("Verifying Key2: {:?}\n", verify_key);
-        verify_key.verify(hash, &sig).is_ok()
+    
+        vKey.verify(hash, &sig).is_ok()
  
     }  
 
