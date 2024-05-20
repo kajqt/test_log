@@ -1,12 +1,12 @@
 // use ecdsa::VerifyingKey;
 use p384::{ecdsa::{signature::{Signer, Verifier}, Signature, SigningKey, VerifyingKey}, pkcs8::der::Encode};
-use std::fs::File;
+use std::fs;
 use anyhow::{anyhow, Result};
-use std::io::{self, BufRead, BufReader};
+use std::io::{self, BufRead, BufReader, Write, Error};
 use std::io::Read;
 use log::*;
-use std::error::Error;
-use std::fs;
+// use std::error::Error;
+use std::fs::File;
 use std::hash::{DefaultHasher, Hash, Hasher};
 use std::mem;
 use std::mem::size_of_val;
@@ -73,9 +73,17 @@ impl LogShield{
         self.signing_key = key;
         let verify_key = VerifyingKey::from(&self.signing_key);
         let serialized = verify_key.to_sec1_bytes();
-        fs::write("verify_key.json", serialized).expect("Unable to write file");
-        // fs.close()
-        // print!("Verify Key <in daemon>: {:?}\n", verify_key);
+        // let mut f = File::create("verify_key.json");
+        match File::create("verify_key.json") {
+            Ok(mut f) => {
+                if let Err(e) = f.write_all(&serialized) {
+                    eprintln!("Failed to write to file: {}", e);
+                }
+            }
+            Err(e) => {
+                eprintln!("Failed to create file: {}", e);
+            }
+        }
 
     }
 
@@ -176,14 +184,14 @@ impl LogShield{
 
     // ...
 
-    pub fn read_verify_key_from_file(&self, file_path: &str) -> VerifyingKey {
+    pub fn read_verify_key_from_file(&self, file_path: &str) -> Result<VerifyingKey, Error>  {
         // Read the file into a String
-        let data: Vec<u8> = fs::read(file_path).unwrap();
+        let data = fs::read(file_path)?;
 
         // Deserialize the String into a VerifyingKey
         let verify_key: VerifyingKey = VerifyingKey::from_sec1_bytes(&data).expect("Failed to deserialize verify_key");
 
-        verify_key
+        Ok(verify_key)
     }
 
 

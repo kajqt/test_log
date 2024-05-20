@@ -31,13 +31,14 @@ fn main() {
 
     let mut buffer = String::new();
     // io::stdin().read_line(&mut buffer);
-
-    // let _ = io::stdout().flush();
+    let mut stdout = io::stdout();
+    let _ = io::stdout().flush();
     io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
 
     
 
     let random_key = SigningKey::random(&mut OsRng);
+    // let random_key = _test_key.clone();
 
     // print!("Random Key: {:?}\n", random_key.to_bytes() );
     let mut ex_logshield = LogShield::default();
@@ -64,21 +65,19 @@ fn main() {
         let len = buffer2.len();
         let example_data = buffer2;
        
-        
-
 
         // println!("line: {:?}", example_data);
         // io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
         // reader.read_to_end(&mut example_data).unwrap();
         
         let new_output_block = ex_logshield.sign(cnt, seq, &example_data);
-        print!("{:?}", new_output_block.mac);
-        print!("{:?}", new_output_block.signature.to_bytes());
+        // print!("{:?}", new_output_block.mac.as_slice());
+        // print!("{:?}", new_output_block.signature.to_bytes());
         // let k = new_output_block.mac.clone();
         // println!("The usize of hash k is {}", size_of_val(&k));
         
-        // let _ = stdout.write(&new_output_block.mac);
-        // let _ = stdout.write(&new_output_block.signature.to_bytes());
+        let _ = stdout.write(&new_output_block.mac);
+        let _ = stdout.write(&new_output_block.signature.to_bytes());
         
         // print!("Cnt {cnt}, Seq {seq}, len {len} \n");
         seq += len as u32; 
@@ -87,11 +86,12 @@ fn main() {
 
         let check = ex_logshield.verify_signature(&example_data, new_output_block.signature);
         let verify_key = VerifyingKey::from(&random_key);
+        // print!("Verify Key daemon: {:?}\n", verify_key); 
         let check2= ex_logshield.verify_signature_byhash(&new_output_block.mac, new_output_block.signature, verify_key);
         
-        assert!(check, "Signature is not valid");
-        assert!(check2, "SignatureHASH is not valid");
-        // print!("\n-> Verify : OK \n");
+        assert!(check, "Signature is not valid??");
+        assert!(check2, "SignatureHASH is not valid??");
+        
         // print!("{cnt} Done!!\n");
         // stdin = io::stdin().lock();
         // buffer2 = &stdin.fill_buf().unwrap();

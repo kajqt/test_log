@@ -8,23 +8,31 @@ use hex_literal::hex;
 fn main() {
 
     let shield = LogShield::default();
-    let verify_key = shield.read_verify_key_from_file("../casetest/verify_key.json");
+    let verify_key = shield.read_verify_key_from_file("../casetest/verify_key.json").unwrap();
     print!("Verifying Key: {:?}\n", verify_key);
     let mut buffer = String::new();
     // io::stdin().read_line(&mut buffer);
 
  
-    io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
+    // io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
 
+    let hash1 =[197, 23, 125, 48, 1, 231, 184, 35];
+    let sig1 = [120, 87, 29, 202, 42, 240, 169, 75, 248, 187, 98, 193, 19, 206, 78, 81, 11, 122, 32, 138, 71, 251, 169, 122, 107, 173, 54, 165, 173, 231, 11, 43, 40, 106, 103, 182, 46, 178, 105, 140, 240, 156, 200, 187, 198, 19, 131, 69, 41, 196, 187, 74, 242, 254, 153, 88, 42, 132, 51, 243, 243, 218, 64, 138, 160, 201, 200, 212, 197, 167, 46, 142, 55, 217, 223, 11, 63, 190, 80, 123, 188, 19, 90, 173, 151, 96, 196, 80, 168, 24, 123, 60, 72, 170, 175, 130];
+
+     
+    let sig = Signature::from_slice(&sig1).unwrap();
+    if shield.verify_signature_byhash(&hash1, sig, verify_key){
+        println!("fixed test Signature is valid");
+    } else {
+        println!("fixed test Signature is not valid");
+    }
     
-
-
     // let mut seq: u32 = 0;
     // let mut cnt: u32 = 0;
     let mut round = 0;
 
     // print!("Verifying Key: {:?}\n", verifyingKey);
-    while !!!buffer.is_empty() {
+    loop {
         print!("Round: {}\n", round);
         round += 1;
       
@@ -103,6 +111,9 @@ xa
         // print!("Done!!\n");
         // stdin = io::stdin().lock();
         // buffer2 = &stdin.fill_buf().unwrap();
+        if round == 1 {
+            break ;
+        }
     }
     
 
