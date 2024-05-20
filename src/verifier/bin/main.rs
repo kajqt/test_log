@@ -13,7 +13,7 @@ fn main() {
     let mut buffer = String::new();
     // io::stdin().read_line(&mut buffer);
 
-    let _ = io::stdout().flush();
+ 
     io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
 
     
@@ -47,7 +47,7 @@ xa
        
         // println!("The usize of x is {}", size_of_val(&x));
        
-        let mut bufhash = [0; 8];
+        let mut bufhash: [u8; 8] = [0; 8];
         let mut buffer2 = Vec::new();
 
         
@@ -77,7 +77,7 @@ xa
 
         let sig = Signature::from_slice(&bufsig).unwrap();
         
-        if shield.verify_signature_byhash(&bufhash, sig,verify_key){
+        if shield.verify_signature_byhash(&bufhash, sig, verify_key){
             println!("Signature is valid");
         } else {
             println!("Signature is not valid");

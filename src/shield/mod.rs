@@ -17,6 +17,7 @@ use std::mem::size_of_val;
 
 // use rand_core::OsRng; 
 
+
 use aes_gcm::{
     aead::{Aead, KeyInit, OsRng, generic_array::{GenericArray, typenum::U32}, rand_core::RngCore},
     Aes256Gcm, Nonce, // Or `Aes128Gcm`
@@ -74,7 +75,7 @@ impl LogShield{
         let serialized = verify_key.to_sec1_bytes();
         fs::write("verify_key.json", serialized).expect("Unable to write file");
         // fs.close()
-        print!("Verify Key <in daemon>: {:?}\n", verify_key);
+        // print!("Verify Key <in daemon>: {:?}\n", verify_key);
 
     }
 
@@ -116,9 +117,7 @@ impl LogShield{
         let mut hasher = DefaultHasher::new();
         Hash::hash_slice(&data, &mut hasher);
         let x =  hasher.finish();
-        // print hash value
-        // println!(" Show hash {:?}", &x.to_be_bytes());
-        // println!("The usize of hash is {}", size_of_val(&x));
+        
         self.current_signature = self.signing_key.sign(&x.to_be_bytes());
         // let verifyKey = VerifyingKey::from(&self.signing_key);
         // print!("Verifying Key: {:?}\n", verifyKey);
