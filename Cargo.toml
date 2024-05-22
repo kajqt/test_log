@@ -15,6 +15,7 @@ generic-array = "1.0.0"
 hex-literal = "0.4.1"
 lazy_static = "1.4.0"
 log = "0.4.21"
+openssl = "0.10.64"
 p384 = "0.13.0"
 rand_core = "0.6.4"
 tokio = "1.37.0"
@@ -24,7 +25,10 @@ tokio = "1.37.0"
 name = "daemon"
 path = "src/daemon/bin/main.rs"
 
-
 [[bin]]
 name = "verifier"
 path = "src/verifier/bin/main.rs"
+
+[[bin]]
+name = "keyrotation"
+path = "src/keyrotation/bin/main.rs"

@@ -32,7 +32,7 @@ fn main() {
     let mut buffer = String::new();
     // io::stdin().read_line(&mut buffer);
     let mut stdout = io::stdout();
-    let _ = io::stdout().flush();
+    
     io::stdin().read_line(&mut buffer).expect("Error reading from STDIN");
 
     
@@ -75,7 +75,7 @@ fn main() {
         // print!("{:?}", new_output_block.signature.to_bytes());
         // let k = new_output_block.mac.clone();
         // println!("The usize of hash k is {}", size_of_val(&k));
-        
+        let _ = stdout.flush();
         let _ = stdout.write(&new_output_block.mac);
         let _ = stdout.write(&new_output_block.signature.to_bytes());
         
