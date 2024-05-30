@@ -10,6 +10,7 @@ aes = "0.8.4"
 aes-gcm = "0.10.1"
 anyhow = "1.0.83"
 atty = "0.2.14"
+cryptoki = "0.6.2"
 ecdsa = "0.16.9"
 generic-array = "1.0.0"
 hex-literal = "0.4.1"
@@ -17,6 +18,7 @@ lazy_static = "1.4.0"
 log = "0.4.21"
 openssl = "0.10.64"
 p384 = "0.13.0"
+pkcs11 = "0.5.0"
 rand_core = "0.6.4"
 tokio = "1.37.0"
 
@@ -32,3 +34,8 @@ path = "src/verifier/bin/main.rs"
 [[bin]]
 name = "keyrotation"
 path = "src/keyrotation/bin/main.rs"
+
+
+[[bin]]
+name = "connector"
+path = "src/connector/bin/main.rs"
