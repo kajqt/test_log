@@ -10,6 +10,7 @@ aes = "0.8.4"
 aes-gcm = "0.10.1"
 anyhow = "1.0.83"
 atty = "0.2.14"
+aws-lc-rs = "1.8.0"
 cryptoki = "0.6.2"
 ecdsa = "0.16.9"
 generic-array = "1.0.0"
@@ -20,7 +21,12 @@ openssl = "0.10.64"
 p384 = "0.13.0"
 pkcs11 = "0.5.0"
 rand_core = "0.6.4"
+reqwest = "0.12.5"
+rustls = "0.23.11"
+rustls-pemfile = "2.1.2"
 tokio = "1.37.0"
+webpki = "0.22.4"
+webpki-roots = "0.26.3"
 
 
 [[bin]]
@@ -39,3 +45,10 @@ path = "src/keyrotation/bin/main.rs"
 [[bin]]
 name = "connector"
 path = "src/connector/bin/main.rs"
+
+[[bin]]
+name = "benchmark"
+path = "src/benchmark/bin/main.rs"
+[[bin]]
+name = "server"
+path = "src/simpleserver/bin/main.rs"
