@@ -28,9 +28,9 @@ fn main() {
     let mut config = rustls::ClientConfig::builder();
     
     let root_store = RootCertStore::empty();
-    let file = File::open("/home/ubuntu/aprototype/certs/root.ca.cert.pem").unwrap();
-    let mut pem = std::io::BufReader::new(file);
-    let certs = rustls_pemfile::certs(&mut pem);
+    // let file = File::open("/home/ubuntu/aprototype/certs/root.ca.cert.pem").unwrap();
+    // let mut pem = std::io::BufReader::new(file);
+    // let certs = rustls_pemfile::certs(&mut pem);
 
     // for r in certs.into_iter(){
     //     match r {
@@ -48,7 +48,7 @@ fn main() {
         .with_root_certificates(root_store)
         .with_no_client_auth();
     
-    let dns_name = webpki::DnsNameRef::try_from_ascii_str("www.wannacoffee.com").unwrap();
+    // let dns_name = webpki::DnsNameRef::try_from_ascii_str("www.wannacoffee.com").unwrap();
 
     let mut sock = TcpStream::connect("www.wannacoffee.com:443").unwrap();
 
@@ -59,11 +59,11 @@ fn main() {
     tls.write(
         concat!(
             "GET / HTTP/1.1\r\n",
-            "Host: www.rust-lang.org\r\n",
+            "Host:  www.wannacoffee.com\r\n",
             "Connection: close\r\n",
             "Accept-Encoding: identity\r\n",
             "\r\n"
-        )
+       )
         .as_bytes(),
     )
     .unwrap();
