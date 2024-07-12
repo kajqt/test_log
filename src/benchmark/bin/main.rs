@@ -5,6 +5,7 @@ use std::io::{Read, Write, stdout};
 use std::fs::File;
 use rustls;
 use webpki;
+use rustls::quic::Version;
 use webpki_roots;
 use rustls::RootCertStore;
 use rustls::{ClientConfig};
@@ -27,11 +28,18 @@ fn main() {
     let mut socket = std::net::TcpStream::connect("www.google.com:443").unwrap();
     let mut config = rustls::ClientConfig::builder();
     
-    let root_store = RootCertStore::empty();
-    // let file = File::open("/home/ubuntu/aprototype/certs/root.ca.cert.pem").unwrap();
-    // let mut pem = std::io::BufReader::new(file);
+    let mut root_store = RootCertStore::empty();
+    root_store.extend(webpki_roots::TLS_SERVER_ROOTS.iter().cloned());
+    println!("Number of items in root_store: {}", root_store.len());
+    let file = File::open("/home/ubuntu/aprototype/certs/newcombine.crt").unwrap();
+    let mut pem = std::io::BufReader::new(file);
     // let certs = rustls_pemfile::certs(&mut pem);
 
+    // let mut pem = BufReader::new(File::open(cafile)?);
+        for cert in rustls_pemfile::certs(&mut pem) {
+            root_store.add(cert.unwrap()).unwrap();
+        }
+        println!("Number of items in root_store: {}", root_store.len());
     // for r in certs.into_iter(){
     //     match r {
     //         Ok(cert) => {
